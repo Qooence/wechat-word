@@ -1,0 +1,16 @@
+<van-panel title="基础信息">
+  <van-cell-group>
+    <van-field value="{{ name }}" label="姓名"  input-align="right" placeholder="姓名" clearable />
+    <van-field value="{{ age }}" error-message="{{ageError}}" bind:input="inputAge" type="number" label="年龄" input-align="right" placeholder="年龄" clearable required/>
+    <van-cell title="性别" value="{{selectSex}}" is-link bind:click="showSexPopup" required/>
+    <van-cell title="时长" value="{{selectYear}}" is-link bind:click="showYearPopup" required/>
+  </van-cell-group>
+  <van-button type="primary" block bind:click="submit" disabled="{{able}}">提交</van-button>
+  <van-popup show="{{ sexShow }}" position="bottom" custom-style="height: 30%;" round close-icon="close" closeable bind:close="onSexClose">
+    <van-picker columns="{{ sex }}" default-index="{{ 1 }}" bind:change="handleSexChange" />
+  </van-popup>
+  <van-popup show="{{ yearShow }}" position="bottom" custom-style="height: 30%;" round close-icon="close" closeable bind:close="onYearClose">
+    <van-picker columns="{{ year }}" default-index="{{ 1 }}" bind:change="handleYearChange" />
+  </van-popup>
+</van-panel>
+
